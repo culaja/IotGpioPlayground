@@ -5,23 +5,29 @@ namespace TestApp
 {
     class Program
     {
-        private static readonly GpioController Controller = new GpioController();
+        private const int InputPin = 1;
+        private const int OutputPin = 2;
         
+        private static readonly GpioController Controller = new GpioController();
+
         static void Main()
         {
-            Controller.OpenPin(1, PinMode.Input);
-            Controller.OpenPin(2, PinMode.Output);
-            Controller.RegisterCallbackForPinValueChangedEvent(1, PinEventTypes.None, Callback);
+            Controller.OpenPin(InputPin, PinMode.Input);
+            Controller.OpenPin(OutputPin, PinMode.Output);
+            Controller.RegisterCallbackForPinValueChangedEvent(InputPin, PinEventTypes.None, Callback);
             
             Console.ReadLine();
             
-            Controller.UnregisterCallbackForPinValueChangedEvent(1, Callback);
+            Controller.UnregisterCallbackForPinValueChangedEvent(InputPin, Callback);
+            Controller.ClosePin(OutputPin);
+            Controller.ClosePin(InputPin);
             Controller.Dispose();
         }
 
         private static void Callback(object sender, PinValueChangedEventArgs args)
         {
             Console.WriteLine($"Received '{args.ChangeType}' signal on pin '{args.PinNumber}'");
+            Controller.Write(OutputPin, args.ChangeType.ToPinValue());
         }
     }
 }

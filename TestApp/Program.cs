@@ -1,35 +1,29 @@
 ﻿using System;
 using System.Device.Gpio;
+using System.Threading;
 
 namespace TestApp
 {
     class Program
     {
-        private const int InputPin = 17;
-        private const int OutputPin = 18;
-        
-        private static readonly GpioController Controller = new GpioController();
-
         static void Main()
         {
-			Console.WriteLine("Listening on GPIO ports ...");
-			
-            Controller.OpenPin(InputPin, PinMode.Input);
-            Controller.OpenPin(OutputPin, PinMode.Output);
-            Controller.RegisterCallbackForPinValueChangedEvent(InputPin, PinEventTypes.None, Callback);
+            Console.WriteLine("LED blinking started ...");
             
-            Console.ReadLine();
+            var controller = new GpioController();
             
-            Controller.UnregisterCallbackForPinValueChangedEvent(InputPin, Callback);
-            Controller.ClosePin(OutputPin);
-            Controller.ClosePin(InputPin);
-            Controller.Dispose();
-        }
+            const int greenLed = 17;
+            controller.OpenPin(greenLed, PinMode.Output);
 
-        private static void Callback(object sender, PinValueChangedEventArgs args)
-        {
-            Console.WriteLine($"Received '{args.ChangeType}' signal on pin '{args.PinNumber}'");
-            Controller.Write(OutputPin, args.ChangeType.ToPinValue());
+            while (true)
+            {
+                controller.Write(greenLed, PinValue.High);
+                Console.WriteLine($"Green LED is '{PinValue.High}'");
+                Thread.Sleep(1000);
+                controller.Write(greenLed, PinValue.Low);
+                Console.WriteLine($"Green LED is '{PinValue.Low}'");
+                Thread.Sleep(1000);
+            }
         }
     }
 }

@@ -1,0 +1,9 @@
+version: "2.1"
+
+services:
+  gpio:
+    build: ./TestApp
+    command: ["dotnet", "TestApp.dll"]
+    devices:
+      - "/dev/gpiomem:/dev/gpiomem"
+    privileged: true

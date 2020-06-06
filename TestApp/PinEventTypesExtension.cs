@@ -5,12 +5,14 @@ namespace TestApp
 {
     public static class PinEventTypesExtension
     {
-        public static PinValue ToPinValue(this PinEventTypes pinEventTypes) =>
-            pinEventTypes switch
+        public static PinValue ToPinValue(this PinEventTypes pinEventTypes)
+        {
+            switch (pinEventTypes)
             {
-                PinEventTypes.Rising => PinValue.High,
-                PinEventTypes.Falling => PinValue.Low,
-                _ => throw new ArgumentOutOfRangeException(nameof(pinEventTypes), pinEventTypes, null)
-            };
+                case PinEventTypes.Rising: return PinValue.High;
+                case PinEventTypes.Falling: return PinValue.Low;
+                default: throw new ArgumentOutOfRangeException(nameof(pinEventTypes), pinEventTypes, null);
+            }
+        }
     }
 }

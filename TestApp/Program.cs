@@ -5,13 +5,15 @@ namespace TestApp
 {
     class Program
     {
-        private const int InputPin = 1;
-        private const int OutputPin = 2;
+        private const int InputPin = 17;
+        private const int OutputPin = 18;
         
         private static readonly GpioController Controller = new GpioController();
 
         static void Main()
         {
+			Console.WriteLine("Listening on GPIO ports ...");
+			
             Controller.OpenPin(InputPin, PinMode.Input);
             Controller.OpenPin(OutputPin, PinMode.Output);
             Controller.RegisterCallbackForPinValueChangedEvent(InputPin, PinEventTypes.None, Callback);

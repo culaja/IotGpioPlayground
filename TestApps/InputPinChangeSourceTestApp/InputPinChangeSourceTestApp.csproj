@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp2.2;netcoreapp3.1</TargetFrameworks>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Adapters\SimulatorAdapter\SimulatorAdapter.csproj" />
+    </ItemGroup>
+
+</Project>

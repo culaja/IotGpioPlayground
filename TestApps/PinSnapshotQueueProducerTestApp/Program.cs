@@ -10,7 +10,7 @@ namespace PinSnapshotQueueTestApp
     {
         public static void Main()
         {
-            using (var liteQueueBuilder = LiteQueueBuilder.NewBuilderUsing("TestQueueDatabase.db"))
+            using (var liteQueueBuilder = LiteQueueBuilder.NewBuilderUsing(@"..\..\..\..\TestQueueDatabase.db"))
             {
                 var pinSnapshotQueue = liteQueueBuilder.PinSnapshotQueueOf("TestQueue");
 

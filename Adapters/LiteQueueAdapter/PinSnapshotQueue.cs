@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using System;
+using Domain;
 using Framework;
 using LiteQueue;
 using Ports;
@@ -16,12 +17,24 @@ namespace LiteQueueAdapter
         
         public void Enqueue(PinSnapshot pinSnapshot) => _liteQueue.Enqueue(PinSnapshotDto.From(pinSnapshot));
 
-        public Optional<PinSnapshot> Dequeue()
+        public bool DequeueWithAction(Action<PinSnapshot> action)
         {
-            var queueEntry = _liteQueue.Dequeue(); 
-            return queueEntry.IsCheckedOut
-                ? Optional<PinSnapshot>.None
-                : queueEntry.Payload.ToDomain();
+            var optionalQueueEntry = _liteQueue.Dequeue().ToOptional();
+            if (optionalQueueEntry.HasValue)
+            {
+                try
+                {
+                    action(optionalQueueEntry.Value.Payload.ToDomain());
+                    _liteQueue.Commit(optionalQueueEntry.Value);
+                }
+                catch
+                {
+                    _liteQueue.Abort(optionalQueueEntry.Value);
+                    throw;
+                }
+            }
+
+            return optionalQueueEntry.HasValue;
         }
     }
 }

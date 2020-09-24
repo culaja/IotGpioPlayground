@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using Domain;
 using LiteQueueAdapter;
 
 namespace PinSnapshotQueueConsumerTestApp
@@ -9,21 +8,16 @@ namespace PinSnapshotQueueConsumerTestApp
     {
         static void Main()
         {
-            using (var liteQueueBuilder = LiteQueueBuilder.NewBuilderUsing("TestQueueDatabase.db"))
+            using (var liteQueueBuilder = LiteQueueBuilder.NewBuilderUsing(@"..\..\..\..\TestQueueDatabase.db"))
             {
                 var pinSnapshotQueue = liteQueueBuilder.PinSnapshotQueueOf("TestQueue");
 
                 while (true)
                 {
-                    var optionalPinSnapshot = pinSnapshotQueue.Dequeue();
-                    if (optionalPinSnapshot.HasNoValue)
+                    if (!pinSnapshotQueue.DequeueWithAction(Console.WriteLine))
                     {
                         Console.WriteLine("No items in queue ...");
                         Thread.Sleep(1000);
-                    }
-                    else
-                    {
-                        Console.WriteLine(optionalPinSnapshot.Value);
                     }
                 }
             }

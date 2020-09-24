@@ -1,5 +1,5 @@
+using System;
 using Domain;
-using Framework;
 
 namespace Ports
 {
@@ -7,6 +7,6 @@ namespace Ports
     {
         void Enqueue(PinSnapshot pinSnapshot);
 
-        Optional<PinSnapshot> Dequeue();
+        bool DequeueWithAction(Action<PinSnapshot> action);
     }
 }

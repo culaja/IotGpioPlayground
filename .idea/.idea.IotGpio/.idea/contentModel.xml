@@ -7,6 +7,20 @@
     <e p="C:\Users\stank\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
     <e p="D:\github\IotGpioPlayground" t="IncludeFlat">
       <e p="Adapters" t="Include">
+        <e p="LiteQueueAdapter" t="IncludeRecursive">
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="LiteQueueAdapter.csproj" t="IncludeRecursive" />
+          <e p="LiteQueueBuilder.cs" t="Include" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="LiteQueueAdapter.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="PinSnapshotDto.cs" t="Include" />
+          <e p="PinSnapshotQueue.cs" t="Include" />
+        </e>
         <e p="SimulatorAdapter" t="IncludeRecursive">
           <e p="bin" t="ExcludeRecursive" />
           <e p="InputPinChangeSourceSimulator.cs" t="Include" />
@@ -46,6 +60,8 @@
             </e>
           </e>
         </e>
+        <e p="Optional.cs" t="Include" />
+        <e p="OptionalExtensions.cs" t="Include" />
         <e p="ValueObject.cs" t="Include" />
       </e>
       <e p="IotGpio.sln" t="IncludeFlat" />
@@ -53,6 +69,7 @@
       <e p="Ports" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="IInputPinChangeSource.cs" t="Include" />
+        <e p="IPinSnapshotQueue.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">
@@ -84,11 +101,32 @@
               <e p="netcoreapp2.2" t="Include">
                 <e p="InputPinChangeSourceTestApp.AssemblyInfo.cs" t="Include" />
               </e>
-              <e p="netcoreapp3.1" t="Include">
-                <e p="InputPinChangeSourceTestApp.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Program.cs" t="Include" />
+        </e>
+        <e p="PinSnapshotQueueConsumerTestApp" t="IncludeRecursive">
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp2.2" t="Include">
+                <e p="PinSnapshotQueueConsumerTestApp.AssemblyInfo.cs" t="Include" />
               </e>
             </e>
           </e>
+          <e p="PinSnapshotQueueConsumerTestApp.csproj" t="IncludeRecursive" />
+          <e p="Program.cs" t="Include" />
+        </e>
+        <e p="PinSnapshotQueueProducerTestApp" t="IncludeRecursive">
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp2.2" t="Include">
+                <e p="PinSnapshotQueueProducerTestApp.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="PinSnapshotQueueProducerTestApp.csproj" t="IncludeRecursive" />
           <e p="Program.cs" t="Include" />
         </e>
       </e>

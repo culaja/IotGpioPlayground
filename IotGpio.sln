@@ -16,6 +16,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApps", "TestApps", "{AC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputPinChangeSourceTestApp", "TestApps\InputPinChangeSourceTestApp\InputPinChangeSourceTestApp.csproj", "{6A8928FA-CE00-4107-A612-9E0C684D098B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteQueueAdapter", "Adapters\LiteQueueAdapter\LiteQueueAdapter.csproj", "{294DD115-4314-4375-8466-6D15C5405B93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinSnapshotQueueProducerTestApp", "TestApps\PinSnapshotQueueProducerTestApp\PinSnapshotQueueProducerTestApp.csproj", "{87D715EF-662D-4EC5-8155-C9899CB9E9D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinSnapshotQueueConsumerTestApp", "TestApps\PinSnapshotQueueConsumerTestApp\PinSnapshotQueueConsumerTestApp.csproj", "{D096B359-061E-4F1C-B5EE-7AD92F3E5DFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,9 +52,24 @@ Global
 		{6A8928FA-CE00-4107-A612-9E0C684D098B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A8928FA-CE00-4107-A612-9E0C684D098B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A8928FA-CE00-4107-A612-9E0C684D098B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294DD115-4314-4375-8466-6D15C5405B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294DD115-4314-4375-8466-6D15C5405B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294DD115-4314-4375-8466-6D15C5405B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294DD115-4314-4375-8466-6D15C5405B93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87D715EF-662D-4EC5-8155-C9899CB9E9D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87D715EF-662D-4EC5-8155-C9899CB9E9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87D715EF-662D-4EC5-8155-C9899CB9E9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87D715EF-662D-4EC5-8155-C9899CB9E9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D096B359-061E-4F1C-B5EE-7AD92F3E5DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D096B359-061E-4F1C-B5EE-7AD92F3E5DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D096B359-061E-4F1C-B5EE-7AD92F3E5DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D096B359-061E-4F1C-B5EE-7AD92F3E5DFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6A9440FB-DEA0-42E3-BED7-E10B45D0D767} = {B8433EEF-29BA-4D5D-AE92-A2F8DBDF887E}
 		{6A8928FA-CE00-4107-A612-9E0C684D098B} = {AC0DBB60-24B8-42B2-813C-AB6EA0F07514}
+		{294DD115-4314-4375-8466-6D15C5405B93} = {B8433EEF-29BA-4D5D-AE92-A2F8DBDF887E}
+		{87D715EF-662D-4EC5-8155-C9899CB9E9D9} = {AC0DBB60-24B8-42B2-813C-AB6EA0F07514}
+		{D096B359-061E-4F1C-B5EE-7AD92F3E5DFF} = {AC0DBB60-24B8-42B2-813C-AB6EA0F07514}
 	EndGlobalSection
 EndGlobal

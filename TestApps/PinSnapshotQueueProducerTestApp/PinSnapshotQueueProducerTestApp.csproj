@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>PinSnapshotQueueTestApp</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Adapters\LiteQueueAdapter\LiteQueueAdapter.csproj" />
+    </ItemGroup>
+
+</Project>

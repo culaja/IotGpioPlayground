@@ -21,5 +21,7 @@ namespace Domain
         }
 
         public override string ToString() => _value ? nameof(PinStatusHigh) : nameof(PinStatusLow);
+
+        public static implicit operator bool(PinStatus pinStatus) => pinStatus._value;
     }
 }
